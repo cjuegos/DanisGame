@@ -22,5 +22,4 @@ public class Sesion {
 		this.id = id;
 	}
 	
-	
 }

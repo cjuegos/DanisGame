@@ -16,7 +16,7 @@ public class Player {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Size(min = 1, message = "Username must be atleast 3 charecters in length")
+	@Size(min = 1, message = "Username must be atleast 1 charecter in length")
 	@Column(name = "username", nullable = false, length = 15)
 	private String username;
 	
