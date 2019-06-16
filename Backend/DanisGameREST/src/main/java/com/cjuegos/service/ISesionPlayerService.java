@@ -1,5 +1,7 @@
 package com.cjuegos.service;
 
-public interface ISesionPlayerService {
+import com.cjuegos.entities.SesionPlayer;
+
+public interface ISesionPlayerService extends CrudService<SesionPlayer> {
 
 }

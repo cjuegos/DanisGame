@@ -1,5 +1,7 @@
 package com.cjuegos.service;
 
-public interface ISesionDanisGameQuestionService {
+import com.cjuegos.entities.SesionDanisGameQuestion;
+
+public interface ISesionDanisGameQuestionService extends CrudService<SesionDanisGameQuestion>  {
 
 }

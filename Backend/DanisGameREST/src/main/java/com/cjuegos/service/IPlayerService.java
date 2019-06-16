@@ -1,5 +1,7 @@
 package com.cjuegos.service;
 
-public interface IPlayerService {
+import com.cjuegos.entities.Player;
+
+public interface IPlayerService extends CrudService<Player> {
 
 }

@@ -1,5 +1,7 @@
 package com.cjuegos.service;
 
-public interface INormalQuestionService {
+import com.cjuegos.entities.NormalQuestion;
+
+public interface INormalQuestionService extends CrudService<NormalQuestion>{
 
 }
