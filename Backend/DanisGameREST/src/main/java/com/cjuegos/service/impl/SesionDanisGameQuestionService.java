@@ -51,5 +51,11 @@ public class SesionDanisGameQuestionService implements ISesionDanisGameQuestionS
 	public void deleteAll() throws Exception {
 		// TODO Auto-generated method stub
 	}
+
+	@Override
+	public List<SesionDanisGameQuestion> fetchBySesionAndState(int id, boolean state) throws Exception {
+		// TODO Auto-generated method stub
+		return sesionDanisGameQuestionRepository.fetchBySesionAndState(id, state);
+	}
 	
 }

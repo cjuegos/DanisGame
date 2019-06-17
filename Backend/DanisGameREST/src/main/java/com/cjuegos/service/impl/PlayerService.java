@@ -51,5 +51,10 @@ public class PlayerService implements IPlayerService {
 	public void deleteAll() throws Exception {
 		// TODO Auto-generated method stub
 	}
+
+	@Override
+	public Player findBottomByOrderByQuestionsDesc() throws Exception {
+		return playerRepository.findBottomByOrderByQuestionsDesc();
+	}
 	
 }

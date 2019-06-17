@@ -7,4 +7,5 @@ import com.cjuegos.entities.Player;
 @Repository
 public interface PlayerRepository extends JpaRepository<Player, Integer> {
 
+	Player findBottomByOrderByQuestionsDesc();
 }

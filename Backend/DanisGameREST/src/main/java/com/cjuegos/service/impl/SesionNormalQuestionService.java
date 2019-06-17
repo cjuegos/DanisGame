@@ -51,5 +51,11 @@ public class SesionNormalQuestionService implements ISesionNormalQuestionService
 	public void deleteAll() throws Exception {
 		// TODO Auto-generated method stub
 	}
+
+	@Override
+	public List<SesionNormalQuestion> fetchBySesionAndState(int id, boolean state) throws Exception {
+		// TODO Auto-generated method stub
+		return sesionNormalQuestionRepository.fetchBySesionAndState(id, state);
+	}
 	
 }

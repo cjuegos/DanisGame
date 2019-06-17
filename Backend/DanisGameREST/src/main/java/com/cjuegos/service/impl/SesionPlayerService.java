@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cjuegos.entities.Player;
 import com.cjuegos.entities.SesionPlayer;
 import com.cjuegos.repository.SesionPlayerRepository;
 import com.cjuegos.service.ISesionPlayerService;
@@ -52,5 +53,11 @@ public class SesionPlayerService implements ISesionPlayerService {
 	public void deleteAll() throws Exception {
 		// TODO Auto-generated method stub
 	}
-	
+
+	@Override
+	public List<SesionPlayer> fetchBySesion(int id) throws Exception {
+		// TODO Auto-generated method stub
+		return sesionPlayerRepository.fetchBySesion(id);
+	}
+
 }

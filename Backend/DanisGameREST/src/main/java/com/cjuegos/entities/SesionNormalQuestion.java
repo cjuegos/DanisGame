@@ -1,5 +1,6 @@
 package com.cjuegos.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +24,17 @@ public class SesionNormalQuestion {
 	@ManyToOne
 	@JoinColumn(name = "normalquestion_id", nullable = true)
 	private NormalQuestion normalquestionId;
+
+	@Column(name = "state", nullable = false)
+	private boolean state = true;
+	
+	public boolean isState() {
+		return state;
+	}
+
+	public void setState(boolean state) {
+		this.state = state;
+	}
 
 	public int getId() {
 		return id;
