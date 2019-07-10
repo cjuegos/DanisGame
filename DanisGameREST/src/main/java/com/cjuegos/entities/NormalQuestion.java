@@ -24,6 +24,9 @@ public class NormalQuestion {
 	@Column(name = "type", nullable = false, length = 150)
 	private String type;
 
+	@Column(name = "state", nullable = false)
+	private Boolean state;
+	
 	public int getId() {
 		return id;
 	}
@@ -47,6 +50,13 @@ public class NormalQuestion {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
+	public Boolean getState() {
+		return state;
+	}
+
+	public void setState(Boolean state) {
+		this.state = state;
+	}
 	
 }

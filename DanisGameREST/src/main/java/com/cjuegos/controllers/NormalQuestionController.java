@@ -26,29 +26,29 @@ public class NormalQuestionController {
 	@Autowired
 	private NormalQuestionService normalQuestionService;
 	
-	@ApiOperation("Lista de estudiantes")
+	@ApiOperation("List questions")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<NormalQuestion>> fetchStudents() {
+	public ResponseEntity<List<NormalQuestion>> fetchQuestions() {
 		try {
-			List<NormalQuestion> students = new ArrayList<>();
-			students = normalQuestionService.findAll();
-			return new ResponseEntity<List<NormalQuestion>>(students, HttpStatus.OK);
+			List<NormalQuestion> questions = new ArrayList<>();
+			questions = normalQuestionService.findAll();
+			return new ResponseEntity<List<NormalQuestion>>(questions, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<List<NormalQuestion>>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
-	@ApiOperation("Obtener estudiante por id")
+	@ApiOperation("Get question by id")
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<NormalQuestion> fetchStudent(@PathVariable("id") Integer id) {
+	public ResponseEntity<NormalQuestion> fetchQuestion(@PathVariable("id") Integer id) {
 
 		try {
-			Optional<NormalQuestion> student = normalQuestionService.findById(id);
+			Optional<NormalQuestion> question = normalQuestionService.findById(id);
 
-			if (!student.isPresent()) {
+			if (!question.isPresent()) {
 				return new ResponseEntity<NormalQuestion>(HttpStatus.NOT_FOUND);
 			}
-			return new ResponseEntity<NormalQuestion>(student.get(), HttpStatus.OK);
+			return new ResponseEntity<NormalQuestion>(question.get(), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<NormalQuestion>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}

@@ -33,36 +33,36 @@ public class PlayerController {
 	@Autowired
 	private PlayerService playerService;
 	
-	@ApiOperation("Obtener jugador con menor preguntas")
-	@GetMapping(value = "/menor", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation("Get player by least questions answered")
+	@GetMapping(value = "/bottom", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Player> findBottomByOrderByQuestionsDesc() {
 
 		try {
-			Player student = playerService.findBottomByOrderByQuestionsDesc();
-			return new ResponseEntity<Player>(student, HttpStatus.OK);
+			Player player = playerService.findBottomByOrderByQuestionsDesc();
+			return new ResponseEntity<Player>(player, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<Player>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
-	@ApiOperation("Lista de estudiantes")
+	@ApiOperation("List of players")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Player>> fetchStudents() {
+	public ResponseEntity<List<Player>> fetchPlayers() {
 		try {
-			List<Player> students = new ArrayList<>();
-			students = playerService.findAll();
-			return new ResponseEntity<List<Player>>(students, HttpStatus.OK);
+			List<Player> players = new ArrayList<>();
+			players = playerService.findAll();
+			return new ResponseEntity<List<Player>>(players, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<List<Player>>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
-	@ApiOperation("Guardar estudiantes")
+	@ApiOperation("Save player")
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> save(@Valid @RequestBody Player student) {
+	public ResponseEntity<Object> save(@Valid @RequestBody Player player) {
 		try {
 			Player s = new Player();
-			s = playerService.save(student);
+			s = playerService.save(player);
 			URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(s.getId())
 					.toUri();
 			return ResponseEntity.created(location).build();
@@ -72,13 +72,13 @@ public class PlayerController {
 
 	}
 	
-	@ApiOperation("Borrar estudiante")
+	@ApiOperation("Borrar jugador")
 	@DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
 		try {
-			Optional<Player> student = playerService.findById(id);
+			Optional<Player> player = playerService.findById(id);
 
-			if (!student.isPresent()) {
+			if (!player.isPresent()) {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			} else {
 				playerService.deleteById(id);

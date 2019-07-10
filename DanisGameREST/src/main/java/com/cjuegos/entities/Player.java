@@ -17,12 +17,15 @@ public class Player {
 	private int id;
 	
 	@Size(min = 1, message = "Username must be atleast 1 charecter in length")
-	@Column(name = "username", nullable = false, length = 15)
-	private String username;
+	@Column(name = "name", nullable = false, length = 15)
+	private String name;
 	
 	@Column(name = "questions", nullable = false)
 	private int questions = 0;
 
+	@Column(name = "sesion", nullable = false)
+	private int sesion = 0;
+	
 	public int getId() {
 		return id;
 	}
@@ -31,20 +34,28 @@ public class Player {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public int getQuestions() {
 		return questions;
 	}
 
 	public void setQuestions(int questions) {
 		this.questions = questions;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getSesion() {
+		return sesion;
+	}
+
+	public void setSesion(int sesion) {
+		this.sesion = sesion;
 	}
 	
 }

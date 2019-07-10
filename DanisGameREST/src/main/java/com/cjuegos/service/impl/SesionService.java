@@ -51,5 +51,11 @@ public class SesionService implements ISesionService {
 	public void deleteAll() throws Exception {
 		// TODO Auto-generated method stub
 	}
+
+	@Override
+	public Sesion findTopByOrderByIdDesc() throws Exception {
+		// TODO Auto-generated method stub
+		return sesionRepository.findTopByOrderByIdDesc();
+	}
 	
 }
